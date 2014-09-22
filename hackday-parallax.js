@@ -14,13 +14,12 @@ if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', function(eventData) {
 
         // gamma is the left-to-right tilt in degrees, where right is positive
-        var tiltLR = eventData.gamma;
+        var tiltLR = Math.floor(eventData.gamma);
+        //tiltLR = Math.floor(tiltLR / 4) * 4;
 
         // beta is the front-to-back tilt in degrees, where front is positive
-        var tiltFB = eventData.beta;
-
-        // alpha is the compass direction the device is facing in degrees
-        var dir = eventData.alpha
+        var tiltFB = Math.floor(eventData.beta);
+        //tiltFB = Math.floor(tiltFB / 4) * 4;
 
         //console.log(tiltLR, tiltFB);
 
@@ -54,8 +53,8 @@ if (window.DeviceOrientationEvent) {
             leftPos = Math.max( - movementAreaInPixels, leftPos);
         }
 
-        $('.c-iwonder-guides-image-container img').css('left', leftPos);
-        $('.c-iwonder-guides-image-container img').css('top', topPos);
+        $('.c-iwonder-guides-image-container img').css('left', - leftPos);
+        $('.c-iwonder-guides-image-container img').css('top',  - topPos);
 
 
     }, false);
