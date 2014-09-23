@@ -13,14 +13,6 @@ if (window.DeviceOrientationEvent) {
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
 
-        if(window.innerWidth > window.innerHeight) {
-            var tiltLR = Math.floor(eventData.gamma);
-            var tiltFB = Math.floor(eventData.beta);
-        } else {
-            var tiltLR = Math.floor(eventData.beta);
-            var tiltFB = Math.floor(eventData.gamma);
-        }
-
         if (tiltLR >= 0) {
             tiltLR = Math.min(degressOfMovement, tiltLR);
         } else {
