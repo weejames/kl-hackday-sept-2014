@@ -10,18 +10,24 @@ if (window.DeviceOrientationEvent) {
     var percentagePerDegreeWidth = percentageMovementWidth / percentageMovementWidth;
     var percentagePerDegreeHeight = percentageMovementHeight / percentageMovementHeight;
 
+    var startAngle = false; // taking a guess at the rough start angle
+
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
-
         var tiltLR = Math.floor(eventData.gamma);
         var tiltFB = Math.floor(eventData.beta);
 
+        if (startAngle === false) {
+            startAngle = tiltFB;
+        }
 
         if (tiltLR >= 0) {
             tiltLR = Math.min(degressOfMovement, tiltLR);
         } else {
             tiltLR = Math.max( - degressOfMovement, tiltLR);
         }
+
+        tiltFB = tiltFB - startAngle;
 
         if (tiltFB >= 0) {
             tiltFB = Math.min(degressOfMovement, tiltFB);
