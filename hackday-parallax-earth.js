@@ -7,8 +7,8 @@ if (window.DeviceOrientationEvent) {
     var degressOfMovement = 20;
     var percentageMovementWidth = 50;
     var percentageMovementHeight = 50;
-    var percentagePerDegreeWidth = percentageMovementWidth / percentageMovementWidth;
-    var percentagePerDegreeHeight = percentageMovementHeight / percentageMovementHeight;
+    var percentagePerDegreeWidth = percentageMovementWidth / degressOfMovement;
+    var percentagePerDegreeHeight = percentageMovementHeight / degressOfMovement;
 
     var startAngle = false; // taking a guess at the rough start angle
 
