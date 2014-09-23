@@ -4,7 +4,7 @@ if (window.DeviceOrientationEvent) {
     $('.kandl-hero').css('background-position', 'center');
     $('.kandl-hero').css('transform', 'translateZ(0)');
 
-    var degressOfMovement = 60;
+    var degressOfMovement = 40;
     var percentageMovementWidth = 50;
     var percentageMovementHeight = 50;
     var percentagePerDegreeWidth = percentageMovementWidth / percentageMovementWidth;
