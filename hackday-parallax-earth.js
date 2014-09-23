@@ -4,7 +4,7 @@ if (window.DeviceOrientationEvent) {
     $('.kandl-hero').css('background-position', 'center');
     $('.kandl-hero').css('transform', 'translateZ(0)');
 
-    var degressOfMovement = 40;
+    var degressOfMovement = 50;
     var percentageMovementWidth = 50;
     var percentageMovementHeight = 50;
     var percentagePerDegreeWidth = percentageMovementWidth / percentageMovementWidth;
@@ -12,6 +12,10 @@ if (window.DeviceOrientationEvent) {
 
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
+
+        var tiltLR = Math.floor(eventData.gamma);
+        var tiltFB = Math.floor(eventData.beta);
+
 
         if (tiltLR >= 0) {
             tiltLR = Math.min(degressOfMovement, tiltLR);
