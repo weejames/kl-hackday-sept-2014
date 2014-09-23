@@ -3,18 +3,11 @@ if (window.DeviceOrientationEvent) {
     $('.kandl-hero').css('background-size', '180%');
     $('.kandl-hero').css('background-position', 'center');
 
-    var scaledSizeWidth = 500;
-    var normalSizeWidth = 320;
-    var scaledSizeHeight = 400;
-    var normalSizeHeight = 320;
-
-    var movementAreaInPixelsWidth = scaledSizeWidth - normalSizeWidth;
-    var movementAreaInPixelsHeight = scaledSizeHeight - normalSizeHeight;
-
     var degressOfMovement = 50;
-
-    var pixelsPerDegreeWidth = movementAreaInPixelsWidth / 35;
-    var pixelsPerDegreeHeight = movementAreaInPixelsHeight / 35;
+    var percentageMovementWidth = 50;
+    var percentageMovementHeight = 50;
+    var percentagePerDegreeWidth = percentageMovementWidth / percentageMovementWidth;
+    var percentagePerDegreeHeight = percentageMovementHeight / percentageMovementHeight;
 
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
@@ -43,25 +36,24 @@ if (window.DeviceOrientationEvent) {
 
         //console.log(tiltLR);
 
-        var leftPos = Math.floor(tiltLR * pixelsPerDegreeWidth);
-        var topPos = Math.floor(tiltFB * pixelsPerDegreeHeight);
-
+        var leftPos = Math.floor(tiltLR * percentagePerDegreeWidth);
+        var topPos = Math.floor(tiltFB * percentagePerDegreeHeight);
 
         if (topPos >= 0) {
-            topPos = Math.min(movementAreaInPixelsHeight, topPos);
+            topPos = Math.min(percentagePerDegreeHeight, topPos);
         } else {
-            topPos = Math.max( - movementAreaInPixelsHeight, topPos);
+            topPos = Math.max( - percentagePerDegreeHeight, topPos);
         }
 
         if (leftPos >= 0) {
-            leftPos = Math.min(movementAreaInPixelsWidth, leftPos);
+            leftPos = Math.min(percentageMovementWidth, leftPos);
         } else {
-            leftPos = Math.max( - movementAreaInPixelsWidth, leftPos);
+            leftPos = Math.max( - percentageMovementWidth, leftPos);
         }
 
-        var position = leftPos + 'px ' + topPos + 'px';
+        var position = leftPos + '% ' + topPos + '%';
 
-        //$('.kandl-hero').css('background-position', position );
+        $('.kandl-hero').css('background-position', position );
 
 
     }, false);
