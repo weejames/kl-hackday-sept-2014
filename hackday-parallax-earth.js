@@ -1,6 +1,6 @@
 if (window.DeviceOrientationEvent) {
 
-    $('.kandl-hero').css('background-size', '180%');
+    $('.kandl-hero').css('background-size', '160%');
     $('.kandl-hero').css('background-position', 'center');
 
     var degressOfMovement = 50;
@@ -40,9 +40,9 @@ if (window.DeviceOrientationEvent) {
         var topPos = Math.floor(tiltFB * percentagePerDegreeHeight);
 
         if (topPos >= 0) {
-            topPos = Math.min(percentagePerDegreeHeight, topPos);
+            topPos = Math.min(percentageMovementHeight, topPos);
         } else {
-            topPos = Math.max( - percentagePerDegreeHeight, topPos);
+            topPos = Math.max( - percentageMovementHeight, topPos);
         }
 
         if (leftPos >= 0) {
@@ -51,7 +51,7 @@ if (window.DeviceOrientationEvent) {
             leftPos = Math.max( - percentageMovementWidth, leftPos);
         }
 
-        var position = leftPos + '% ' + topPos + '%';
+        var position = (leftPos + 50) + '% ' + (topPos + 50) + '%';
 
         $('.kandl-hero').css('background-position', position );
 
