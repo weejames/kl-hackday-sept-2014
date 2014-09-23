@@ -1,6 +1,6 @@
 if (window.DeviceOrientationEvent) {
 
-    $('.kandl-hero').css('background-size', '160%');
+    $('.kandl-hero').css('background-size', '200%');
     $('.kandl-hero').css('background-position', 'center');
     $('.kandl-hero').css('transform', 'translateZ(0)');
 
