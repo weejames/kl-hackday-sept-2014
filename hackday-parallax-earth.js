@@ -3,6 +3,22 @@ if (window.DeviceOrientationEvent) {
     $('.kandl-hero').css('background-size', '140%');
     $('.kandl-hero').css('background-position', 'center');
 
+    var imageSrc = $('.kandl-hero')
+                     .style
+                      .backgroundImage
+                       .replace(/url\((['"])?(.*?)\1\)/gi, '$2')
+                        .split(',')[0];
+
+    // I just broke it up on newlines for readability        
+
+    var image = new Image();
+    image.src = imageSrc;
+
+    var width = image.width,
+        height = image.height;
+
+    alert('width =' + width + ', height = ' + height)  
+
 
     var scaledSizeWidth = 1800;
     var normalSizeWidth = 1600;
