@@ -3,11 +3,7 @@ if (window.DeviceOrientationEvent) {
     $('.kandl-hero').css('background-size', '140%');
     $('.kandl-hero').css('background-position', 'center');
 
-    var imageSrc = $('.kandl-hero')
-                     .style
-                      .backgroundImage
-                       .replace(/url\((['"])?(.*?)\1\)/gi, '$2')
-                        .split(',')[0];
+    var imageSrc = $('.kandl-hero').css('background-image').replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
 
     // I just broke it up on newlines for readability        
 
