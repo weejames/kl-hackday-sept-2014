@@ -1,16 +1,21 @@
 if (window.DeviceOrientationEvent) {
 
-    $('.kandl-hero').css('background-size', '160%');
-    $('.kandl-hero').css('background-position', 'center');
-    $('.kandl-hero').css('transform', 'translateZ(0)');
+    var getVars = getUrlVars();
 
-    var degressOfMovement = 50;
+    var startScale = getVars['scale'] || 160
+
+    var degressOfMovement = parseInt(getVars['deg']) || 15;
     var percentageMovementWidth = 50;
     var percentageMovementHeight = 50;
     var percentagePerDegreeWidth = percentageMovementWidth / percentageMovementWidth;
     var percentagePerDegreeHeight = percentageMovementHeight / percentageMovementHeight;
 
     var startAngle = false; // taking a guess at the rough start angle
+
+    $('.kandl-hero').css('background-size', startScale + '%');
+    $('.kandl-hero').css('background-position', 'center');
+    $('.kandl-hero').css('transform', 'translateZ(0)');
+
 
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
@@ -56,4 +61,18 @@ if (window.DeviceOrientationEvent) {
 
 } else {
     alert('Alas! No device orientation API!')
+}
+
+// Read a page's GET URL variables and return them as an associative array.
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
