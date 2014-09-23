@@ -61,7 +61,7 @@ if (window.DeviceOrientationEvent) {
 
         var position = leftPos + 'px ' + topPos + 'px';
 
-        $('.kandl-hero').css('background-position', position );
+        //$('.kandl-hero').css('background-position', position );
 
 
     }, false);
