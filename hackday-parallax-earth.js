@@ -17,7 +17,9 @@ if (window.DeviceOrientationEvent) {
         var tiltLR = Math.floor(eventData.gamma);
         var tiltFB = Math.floor(eventData.beta);
         
-        if (startAngle === false) tiltFB = tiltFB + startAngle;
+        if (startAngle === false) {
+            tiltFB = tiltFB - startAngle;
+        }
 
         if (tiltLR >= 0) {
             tiltLR = Math.min(degressOfMovement, tiltLR);
