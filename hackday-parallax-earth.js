@@ -5,7 +5,7 @@ if (window.DeviceOrientationEvent) {
     var startScale = getVars['scale'] || 160
 
     var degressOfMovement = parseInt(getVars['deg']) || 15;
-    var percentageMovementWidth = 30;
+    var percentageMovementWidth = 35;
     var percentageMovementHeight = 50;
     var percentagePerDegreeWidth = percentageMovementWidth / degressOfMovement;
     var percentagePerDegreeHeight = percentageMovementHeight / degressOfMovement;
